@@ -21,9 +21,14 @@ Route::get('/', function () {
 
 //Auth::routes();
 
-/*Ingresar datos paciente*/
+/*Ingresar datos paciente nuevo*/
 
 Route::get('/registro', [PacienteController::class, 'mostrarFormulario'])->name('paciente.ver');
 Route::post('/registro', [PacienteController::class, 'registrarPaciente'])->name('paciente.registro');
+
+/*Ingresar dato paciente antiguo */
+Route::get('/pacienteantiguo', [PacienteController::class, 'rutVerificador'])->name('paciente.verpacantiguo');
+Route::post('/pacienteantiguo', [PacienteController::class, 'verificarRut'])->name('paciente.regpacantiguo');
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

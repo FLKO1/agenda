@@ -36,6 +36,22 @@ class PacienteController extends Controller
         Paciente::create($request->all()); */
 
         return redirect('inicio')->with('mensaje', 'Paciente registrado exitosamente.');
+    }
 
+    public function rutVerificador(){
+        return view ('paciente.pacienteant');
+    }
+
+    public function verificarRut(Request $request){
+        $rut =$request->input('rut');
+
+        $paciente = Paciente::where('rut', $rut)->first();
+
+        if ($paciente){
+            /*INGRESAR EN EL REDIRECT LA RUTA DONDE TIENEN QUE AGENDAR LA HORA*/
+            return redirect();
+        }else{
+            return redirect('paciente.registro')->with('mensaje', 'No se a encontrado ningun paciente con ese rut');
+        }
     }
 }

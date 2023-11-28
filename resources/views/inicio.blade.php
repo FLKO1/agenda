@@ -44,7 +44,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
                       <a class="nav-link" href="{{route('paciente.registro') }}">Paciente nuevo</a>
                   </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">Paciente Antiguo</a>
+                      <a class="nav-link" href="{{route('paciente.regpacantiguo')}}">Paciente Antiguo</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="#">Confirmar hora</a>
