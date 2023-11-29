@@ -1,38 +1,72 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <title>Login doctor</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="{{asset('assets/estilos.css')}}">
 </head>
+
 <body>
-    <div class="container-fluid d-flex align-items-center justify-content-center vh-100">
-        <div class="row">
-         <div class="col-md-10">   
-    <form>
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label">Ingrese su correo/usuario</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-          <div id="emailHelp" class="form-text">Verifique que sea con el que se le ingreso.</div>
+  <section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
+  
+              <div class="mb-md-5 mt-md-4 pb-5">
+  
+                <h2 class="fw-bold mb-2 text-uppercase">Login</h2>
+                <p class="text-white-50 mb-5">Hola, ingrese su correo y contraseña</p>
+  
+                <form action="{{route('login')}}" method="POST">
+                  
+                @csrf
+                <div class="form-outline form-white mb-4">
+                  <input type="email" id="typeEmailX" class="form-control form-control-lg" />
+                  <label class="form-label" for="typeEmailX">Correo</label>
+                </div>
+  
+                <div class="form-outline form-white mb-4">
+                  <input type="password" id="typePasswordX" class="form-control form-control-lg" />
+                  <label class="form-label" for="typePasswordX">Contraseña</label>
+                </div>
+  
+                <p class="small mb-5 pb-lg-2"><a class="text-white-50" href="#!">Olvido su contraseña?</a></p>
+  
+                <button class="btn btn-outline-light btn-lg px-5" type="submit">ENTRAR</button>
+                </form>
+              </div>
+  
+              <div>
+                <p class="mb-0">¿No tiene cuenta?</p>
+                <p class="mb-0">Contacte al programador para generarle un usuario</p>
+              </div>
+              
+  
+            </div>
+          </div>
         </div>
-        
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Contraseña/password</label>
-          <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        
-        <div class="mb-3 form-check">
-          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-          <label class="form-check-label" for="exampleCheck1">Recuerdame</label>
-        </div>
-        
-        <button type="submit" class="btn btn-primary">Entrar</button>
-      </form>
-         </div>
-        </div>
+      </div>
     </div>
+    
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+    integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+    integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
+  </script>
 </body>
+
 </html>

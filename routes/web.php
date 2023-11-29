@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\CalendarioController;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +21,7 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-//Auth::routes();
+Auth::routes();
 
 /*Ingresar datos paciente nuevo*/
 
@@ -30,5 +32,9 @@ Route::post('/registro', [PacienteController::class, 'registrarPaciente'])->name
 Route::get('/pacienteantiguo', [PacienteController::class, 'rutVerificador'])->name('paciente.verpacantiguo');
 Route::post('/pacienteantiguo', [PacienteController::class, 'verificarRut'])->name('paciente.regpacantiguo');
 
+/*Calendario*/
+Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
+Route::post('/calendario/create', [CalendarioController::class, 'store'])->name('calendario.create');
+Route::get('/calendario/{id}', [CalendarioController::class, 'destroy'])->name('calendario.delete');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
