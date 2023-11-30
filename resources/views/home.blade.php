@@ -31,6 +31,9 @@
                         <a class="nav-link" href="{{route('paciente.registro') }}">PACIENTES</a>
                     </li>
                     <li class="nav-item">
+                      <a class="nav-link" href="{{route('disponibilidad.index') }}">PACIENTES</a>
+                  </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>
                 </ul>
             </div>

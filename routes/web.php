@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\DisponibilidadController;
+use App\Models\Disponibilidad;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -31,6 +33,11 @@ Route::post('/registro', [PacienteController::class, 'registrarPaciente'])->name
 /*Ingresar dato paciente antiguo */
 Route::get('/pacienteantiguo', [PacienteController::class, 'rutVerificador'])->name('paciente.verpacantiguo');
 Route::post('/pacienteantiguo', [PacienteController::class, 'verificarRut'])->name('paciente.regpacantiguo');
+
+/*Disponibilidad*/
+Route::get('/disponibilidad',[DisponibilidadController::class, 'index'])->name('disponibilidad');
+Route::post('/disponibilidad/create',[DisponibilidadController::class, 'store'])->name('disponibilidad.create');
+Route::get('/disponibilidad/{id}',[DisponibilidadController::class, 'destroy'])->name('disponibilidad.delete');
 
 /*Calendario*/
 Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
