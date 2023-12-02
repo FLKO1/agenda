@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>CRUD DISPONIBILIDAD</title>
+  <title>CRUD PREVISION</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <h1>ESTE ES TU PANEL PARA DISPONIBILIDAD</h1>
+    <h1>ESTE ES TU PANEL PARA PREVISION</h1>
     <div class="row">
         <div class="col-12">
             <div>
-                <h2 class="text-white">PANEL DE DISPONIBILIDAD</h2>
+                <h2 class="text-white">PANEL DE PREVISION</h2>
             </div>
             <div>
-                <a href="{{route('disponibilidad.create')}}" class="btn btn-primary">CREAR</a>
+                <a href="{{route('prevision.create')}}" class="btn btn-primary">CREAR</a>
             </div>
         </div>
     
@@ -30,9 +30,9 @@
                 <tr class="text-secondary">
                     <th>Nombre</th>
                 </tr>
-                @foreach($disponibilidads as $disponibilida)
+                @foreach($previsions as $prevision)
                 <tr>
-                    <td class="fw-bold">{{$disponibilida->nombre}}</td>
+                    <td class="fw-bold">{{$prevision->nombre}}</td>
 
                     <td>
                        <!-- <form action="" method="post" class="d-inline">

@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class DisponibilidadController extends Controller
 {
     public function index(){
-        $disponibilida = Disponibilidad::latest()->get();
-        return view('disponibilidad.index', ['disponibilidads'=> $disponibilida]);
+        $disponibilidads =Disponibilidad::all();
+        return view('disponibilidad.index',compact('disponibilidads'));
     }
 
     public function destroy($id)

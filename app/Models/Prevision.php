@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Prevision extends Model
 {
     use HasFactory;
+    protected $table = 'previsions';
+    protected $fillable = ['nombre'];
 }

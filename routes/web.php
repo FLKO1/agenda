@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\DisponibilidadController;
-use App\Models\Disponibilidad;
+use App\Http\Controllers\PrevisionController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -35,13 +35,20 @@ Route::get('/pacienteantiguo', [PacienteController::class, 'rutVerificador'])->n
 Route::post('/pacienteantiguo', [PacienteController::class, 'verificarRut'])->name('paciente.regpacantiguo');
 
 /*Disponibilidad*/
-Route::get('/disponibilidad',[DisponibilidadController::class, 'index'])->name('disponibilidad');
-Route::post('/disponibilidad/create',[DisponibilidadController::class, 'store'])->name('disponibilidad.create');
+Route::get('/disponibilidad',[DisponibilidadController::class, 'index'])->name('disponibilidad.index');
+Route::get('/disponibilidad/create',[DisponibilidadController::class, 'create'])->name('disponibilidad.create');
+Route::post('/disponibilidad/create',[DisponibilidadController::class, 'store'])->name('disponibilidad.store');
 Route::get('/disponibilidad/{id}',[DisponibilidadController::class, 'destroy'])->name('disponibilidad.delete');
 
 /*Calendario*/
 Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
-Route::post('/calendario/create', [CalendarioController::class, 'store'])->name('calendario.create');
+Route::get('/calendario/create', [CalendarioController::class, 'create'])->name('calendario.create');
 Route::get('/calendario/{id}', [CalendarioController::class, 'destroy'])->name('calendario.delete');
+
+/* PREVISON */
+Route::get('/prevision',[PrevisionController::class,'index'])->name('prevision');
+Route::get('/prevision/create',[PrevisionController::class,'create'])->name('prevision.create');
+Route::post('/prevision/store',[PrevisionController::class,'store'])->name('prevision.store');
+Route::get('/prevision/{id}',[PrevisionController::class,'destroy'])->name('prevision.delete');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

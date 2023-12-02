@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>CRUD CREAR DISP</title>
+  <title>CRUD CREAR PROVISIONES</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,14 +14,14 @@
 </head>
 
 <body>
-    <h1>CREACION DE ESTADOS DE DISPONIBILIDAD</h1>
+    <h1>CREACION DE ESTADOS DE PREVISIONES</h1>
     <div class="row">
         <div class="col-12">
             <div>
                 <h2>Crear Tarea</h2>
             </div>
             <div>
-                <a href="{{route('disponibilidad.index')}}" class="btn btn-primary">Volver</a>
+                <a href="{{route('prevision')}}" class="btn btn-primary">Volver</a>
             </div>
         </div>
         
@@ -36,7 +36,7 @@
         </div>
         @endif
     
-        <form action="{{route('disponibilidad.store')}}" method="POST">
+        <form action="{{route('prevision.store')}}" method="POST">
             @csrf
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2">

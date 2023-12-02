@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Disponibilidad extends Model
 {
     use HasFactory;
-    protected $table = 'disponibilidad';
+    protected $table = 'disponibilidads';
     protected $fillable = ['nombre'];
 }
