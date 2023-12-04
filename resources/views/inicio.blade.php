@@ -50,10 +50,10 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
                     <a class="nav-link" href="{{route('disponibilidad.index')}}">DISPONIBILIDAD</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{route('prevision')}}">CREAR PREVISION</a>
+                  <a class="nav-link" href="{{route('prevision')}}">PREVISION</a>
               </li>
                   <li class="nav-item">
-                      <a class="nav-link" href="#">Confirmar hora</a>
+                      <a class="nav-link" href="{{route('especialidad.index')}}">ESPECIALIDAD</a>
                   </li>
                   <li class="nav-item">
                       <a class="nav-link" href="{{route('login')}}">Login</a>

@@ -5,6 +5,7 @@ use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\CalendarioController;
 use App\Http\Controllers\DisponibilidadController;
 use App\Http\Controllers\PrevisionController;
+use App\Http\Controllers\EspecialidadController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -50,5 +51,11 @@ Route::get('/prevision',[PrevisionController::class,'index'])->name('prevision')
 Route::get('/prevision/create',[PrevisionController::class,'create'])->name('prevision.create');
 Route::post('/prevision/store',[PrevisionController::class,'store'])->name('prevision.store');
 Route::get('/prevision/{id}',[PrevisionController::class,'destroy'])->name('prevision.delete');
+
+/*ESPECIALIDAD */
+Route::get('/especialidad',[EspecialidadController::class,'index'])->name('especialidad.index');
+Route::get('/especialidad/create',[EspecialidadController::class,'create'])->name('especialidad.create');
+Route::post('/especialidad/create',[EspecialidadController::class,'store'])->name('especialidad.store');
+Route::get('/especialidad/{id}',[EspecialidadController::class,'destroy'])->name('especialidad.delete');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
