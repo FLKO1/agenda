@@ -47,8 +47,8 @@
               </div>
   
               <div>
-                <p class="mb-0">¿No tiene cuenta?</p>
-                <p class="mb-0">Contacte al programador para generarle un usuario</p>
+                <p class="mb-0">¿No tienes cuenta?</p>
+                <p class="mb-0"><a href="{{route('register')}}">Registrate</a></p>
               </div>
               
   

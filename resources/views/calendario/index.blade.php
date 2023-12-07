@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Title</title>
+  <title>CALENDARIO</title>
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,19 +11,32 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
+    <!-- FullCalendar -->
+    
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
+<script src="{{asset('js/agenda.js')}}"></script>
+
+
 </head>
 
 <body>
+    <h2>calendario</h2>
+    <div id="calendar"></div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+    <!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header"> 
                     <h5 class="modal-title ">DATOS  HORARIO:</h5> 
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-                <form action="{{route('horario.create')}}" method="post" enctype="multipart/form-data"> 
-                    @csrf 
+                <form action="" method="post" enctype="multipart/form-data"> 
+                    csrf (poner @)
                     <div class="modal-body">
                         <div class="row">
                             <input type="hidden" name="id" id="id"> 
@@ -57,17 +70,18 @@
                     <div class="modal-footer"> 
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                    @if ($errors->any())  
+                    //if ($errors->any())  (poner @)
                         <script>
                             $(document).ready(function() {
                                 $('#exampleModal').modal('show');
                             });
                         </script>
-                    @endif
+                    //endif (poner @)
                 </form>
             </div>
         </div>
     </div>
+-->
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
