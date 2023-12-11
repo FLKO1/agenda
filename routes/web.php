@@ -44,6 +44,7 @@ Route::get('/disponibilidad/{id}',[DisponibilidadController::class, 'destroy'])-
 /*Calendario*/
 Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
 Route::get('/calendario/create', [CalendarioController::class, 'create'])->name('calendario.create');
+Route::post('/calendario/store', [CalendarioController::class, 'store'])->name('calendario.store');
 Route::get('/calendario/{id}', [CalendarioController::class, 'destroy'])->name('calendario.delete');
 
 /* PREVISON */
@@ -55,7 +56,7 @@ Route::get('/prevision/{id}',[PrevisionController::class,'destroy'])->name('prev
 /*ESPECIALIDAD */
 Route::get('/especialidad',[EspecialidadController::class,'index'])->name('especialidad.index');
 Route::get('/especialidad/create',[EspecialidadController::class,'create'])->name('especialidad.create');
-Route::post('/especialidad/create',[EspecialidadController::class,'store'])->name('especialidad.store');
+Route::post('/especialidad/store',[EspecialidadController::class,'store'])->name('especialidad.store');
 Route::get('/especialidad/{id}',[EspecialidadController::class,'destroy'])->name('especialidad.delete');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

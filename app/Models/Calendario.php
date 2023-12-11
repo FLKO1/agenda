@@ -12,4 +12,13 @@ class Calendario extends Model
     
         return $this->belongsTo(Disponibilidad::class);
     }
+
+    static $rules=[
+        'title'=> 'required',
+        'disponibilidad_id'=> 'required',
+        'start'=> 'required',
+        'end'=> 'required',
+    ];
+
+    protected $fillable=['title', 'start', 'end'];
 }

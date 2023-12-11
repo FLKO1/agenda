@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('calendarios', function (Blueprint $table) {
             $table->id();
-            $table->string('nombreDia', 20);
-            $table->string('hora', 100);
+            $table->string('title', 20);
+            $table->dateTime("start");
+            $table->dateTime("end");
             $table->unsignedBigInteger('disponibilidad_id');
             $table->foreign('disponibilidad_id')->references('id')->on('disponibilidads');        
             $table->timestamps();

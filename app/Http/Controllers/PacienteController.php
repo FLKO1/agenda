@@ -13,18 +13,8 @@ class PacienteController extends Controller
     }
 
     public function registrarPaciente(Request $request)
-    {
-
-        $pacientes= new Paciente();
-        $pacientes->rut =$request->rut;
-        $pacientes->nombre =$request->nombre;
-        $pacientes->apellido =$request->apellido;
-        $pacientes->correo =$request->correo;
-        $pacientes->telefono =$request->telefono;
-        $pacientes->prevision =$request->previson;
-
-        $pacientes->save();
-       /* $request->validate([
+    { 
+        $request->validate([
             'rut' => 'required|unique:pacientes,rut|size:12',
             'nombre' => 'required',
             'apellido' => 'required',
@@ -32,10 +22,8 @@ class PacienteController extends Controller
             'telefono' => 'required',
             'prevision' => 'required|in:Fonasa,Isapre,Ninguno',
         ]);
-
-        Paciente::create($request->all()); */
-
-        return redirect('inicio')->with('mensaje', 'Paciente registrado exitosamente.');
+        Paciente::create($request->all()); 
+        return redirect()->with('mensaje', 'Paciente registrado exitosamente.');
     }
 
     public function rutVerificador(){

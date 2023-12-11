@@ -18,9 +18,7 @@ return new class extends Migration
             $table->string('apellido',20);
             $table->string('correo',50)->unique();
             $table->string('telefono',20);
-           // $table->unsignedBigInteger('prevision_id');
-            //$table->foreign('prevision_id')->references('id')->on('previsions');
-            
+            $table->enum('prevision', ['Fonasa', 'Isapre', 'Ninguna']);
             $table->timestamps();
         });
     }

@@ -14,8 +14,17 @@ class CalendarioController extends Controller
 
 
     public function index(){
-        $data =  Calendario::all();
+        //$data =  Calendario::all();
         return view ('calendario.index');
+    }
+
+    public function create(){
+
+    }
+
+    public function store(Request $request){
+        request()->validate(Calendario::$rules);
+        $calendario=Calendario::create($request->all());
     }
 
     public function destroy($id)
