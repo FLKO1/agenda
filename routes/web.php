@@ -44,6 +44,7 @@ Route::get('/disponibilidad/{id}',[DisponibilidadController::class, 'destroy'])-
 /*Calendario*/
 Route::get('/calendario', [CalendarioController::class, 'index'])->name('calendario');
 Route::get('/calendario/create', [CalendarioController::class, 'create'])->name('calendario.create');
+Route::post('/calendario/store', [CalendarioController::class, 'store'])->name('calendario.store');
 Route::get('/calendario/{id}', [CalendarioController::class, 'destroy'])->name('calendario.delete');
 
 /* PREVISON */

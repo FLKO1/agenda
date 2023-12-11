@@ -18,71 +18,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js"></script>
 <script src="{{asset('js/agenda.js')}}"></script>
-
-
-</head>
-
-<body>
-    <h2>calendario</h2>
-    <div id="calendar"></div>
-
-
-
-    <!--<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header"> 
-                    <h5 class="modal-title ">DATOS  HORARIO:</h5> 
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <form action="" method="post" enctype="multipart/form-data"> 
-                    csrf (poner @)
-                    <div class="modal-body">
-                        <div class="row">
-                            <input type="hidden" name="id" id="id"> 
-                            <div class="col-lg-12 mb-2">  
-                                <div>
-                                    <label for="nombre" class="form-label">Dia<code style="font-size: 14px">*</code></label>
-                                    <input type="text" class="form-control rounded-pill" name="nombre" id="nombre" required placeholder="Ingrese nombre completo">
-                                </div> 
-                            </div> 
-                            <div class="col-lg-12 mb-2">  
-                                <div>
-                                    <label for="horas" class="form-label">Horas<code style="font-size: 14px">*</code></label>
-                                    <input type="text" class="form-control rounded-pill" name="horas" id="horas"  required placeholder="Ingrese nombre completo">
-                                </div> 
-                            </div> 
-                            <div class="col-lg-12 mb-2">   
-                            </div>
-                            <div class="col-lg-12 mb-2">  
-                                <div> 
-                                    <label for="estado" class="form-label">Estado<code style="font-size: 14px">*</code></label>
-                                    <select name="estado" id="estado" class="form-control">
-                                        <option value="0">Disponible</option>
-                                        <option value="1">Ocupado</option>
-                                        <option value="2">Feriado</option>
-                                        <option value="3">No Laboral</option>
-                                    </select>
-                                </div> 
-                            </div>
-                        </div> 
-                    </div> 
-                    <div class="modal-footer"> 
-                        <button type="submit" class="btn btn-primary">Guardar</button>
-                    </div>
-                    //if ($errors->any())  (poner @)
-                        <script>
-                            $(document).ready(function() {
-                                $('#exampleModal').modal('show');
-                            });
-                        </script>
-                    //endif (poner @)
-                </form>
-            </div>
-        </div>
-    </div>
--->
-
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
     integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
   </script>
@@ -90,6 +25,42 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
     integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous">
   </script>
+
+</head>
+
+<body>
+    <h2>Agenda dias</h2>
+    <div id="calendar"></div>
+    <div>
+        <a href="{{route('calendario.create')}}" class="btn btn-primary">CREAR</a>
+    </div>
+    <div class="row justify-content-center align-items-center g-2">
+        <div class="table-responsive">
+            <table class="table table-primary">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre del Dia</th>
+                        <th scope="col">Dia</th>
+                        <th scope="col">Hora</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="text-secondary">
+                    </tr>
+                    @foreach($calendarios as $calendario)
+                    <tr>
+                        <td class="fw-bold">{{$calendario->title}}</td>
+                        <td class="fw-bold">{{$calendario->star}}</td>
+                        <td class="fw-bold">{{$calendario->end}}</td>
+
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    
+
+
 </body>
 
 </html>
