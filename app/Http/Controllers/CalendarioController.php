@@ -14,8 +14,7 @@ class CalendarioController extends Controller
 
 
     public function index(){
-        //$data =  Calendario::all();
-        $calendarios=Calendario::all();
+        $calendarios= Calendario::all();
         return view('calendario.index',compact('calendarios'));
     }
 
