@@ -30,29 +30,32 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
         <br><br>
         <h2>Listado de Pacientes</h2>
         <br>
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#create">
-            Nuevo
-        </button>
+        <div class="d-grid gap-2 d-md-block"> 
+        <a href="{{route('paciente.registro')}}" class="btn btn-primary">AGREGAR</a>
+        </div>
+
     <div class="table-responsive">
         <br>
         <table class="table">
             <thead class="bg-dark text-white">
             <tr>
+                <th scope="col">#ID</th>
                 <th scope="col">Rut</th>
                 <th scope="col">Nombre</th>
                 <th scope="col">Apellido</th>
                 <th>Correo</th>
                 <th>Prevision</th>
+                <th scope="col">ACCIONES</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($pacientes as $paciente)
                 <tr class="">
-                    <td scope="row"> {{$paciente->id}}</td>
+                    <td scope="row">{{$paciente->id}}</td> 
                     <td>{{$paciente->rut}}</td>
-                    <td>{{$paciente->nombre}}></td>
-                    <td>{{$paciente->apellido}}></td>
-                    <td>{{$paciente->correo}}></td>
+                    <td>{{$paciente->nombre}}</td>
+                    <td>{{$paciente->apellido}}</td>
+                    <td>{{$paciente->correo}}</td>
                     <td>{{$paciente->prevision}}</td>
                     <td>
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit{{$paciente->id}}">

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('title', 20);
             $table->dateTime("start");
-            $table->dateTime("end");
+            $table->time("end");
             $table->unsignedBigInteger('disponibilidad_id');
             $table->foreign('disponibilidad_id')->references('id')->on('disponibilidads');        
             $table->timestamps();

@@ -28,10 +28,10 @@
                         <a class="nav-link active" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('paciente.registro') }}">PACIENTES</a>
+                        <a class="nav-link" href="{{route('paciente.index') }}">ADMINISTRAR PACIENTES</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{route('disponibilidad.index') }}">PACIENTES</a>
+                      <a class="nav-link" href="{{route('disponibilidad.index') }}">ADMINISTRAR DISPONIBILIDAD</a>
                   </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>

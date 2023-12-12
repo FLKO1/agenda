@@ -27,7 +27,7 @@ Route::get('/', function () {
 Auth::routes();
 
 /*Ingresar datos paciente nuevo*/
-
+Route::get('/paciente',[PacienteController::class, 'index'])->name('paciente.index');
 Route::get('/registro', [PacienteController::class, 'mostrarFormulario'])->name('paciente.ver');
 Route::post('/registro', [PacienteController::class, 'registrarPaciente'])->name('paciente.registro');
 

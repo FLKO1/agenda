@@ -15,16 +15,25 @@ class CalendarioController extends Controller
 
     public function index(){
         //$data =  Calendario::all();
-        return view ('calendario.index');
+        $calendarios=Calendario::all();
+        return view('calendario.index',compact('calendarios'));
     }
 
     public function create(){
+        return view ('calendario.create');
 
     }
 
     public function store(Request $request){
-        request()->validate(Calendario::$rules);
-        $calendario=Calendario::create($request->all());
+        request()->validate([
+            'title'=> 'requiered',
+            'disponibilidad_id' => 'required',
+            'star' => 'required',
+            'end' => 'required'
+        ]);
+        Calendario::create($request->all());
+        return redirect()->route('calendario')->with('success', 'Hora creada!');
+
     }
 
     public function destroy($id)

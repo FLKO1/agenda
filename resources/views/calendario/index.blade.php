@@ -25,7 +25,8 @@
     <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.10/index.global.min.js'></script>
     <script>
 
-      document.addEventListener('DOMContentLoaded', function() {
+    /*  
+    document.addEventListener('DOMContentLoaded', function() {
         let formulario = document.querySelector("form");
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
@@ -69,151 +70,53 @@
             )
         })
       });
+      */
     </script>
   
 </head>
 
-<body>
-    <div class="container">
-        calendario
-    <div id='calendar'></div>
+<body> 
+    <h2>ADMINISTRA TUS HORAS</h2>
+    <div class="d-grid gap-2 d-md-block"> 
+            <a href="{{route('calendario.create')}}" class="btn btn-primary">AGREGAR</a>
+     </div>
+    <div class="container mt-5">
+        <table class="table">
+            <thead class="bg-dark text-white">
+            <tr>
+                <th scope="col">#ID</th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Dia</th>
+                <th scope="col">Hora</th>
+                <th scope="col">Disponibilidad</th>
+                <th scope="col">ACCIONES</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($calendarios as $calendario)
+                <tr class="">
+                    <td scope="row">{{$calendario->id}}</td> 
+                    <td>{{$calendario->title}}</td>
+                    <td>{{$calendario->star}}</td>
+                    <td>{{$calendario->disponibilidad_id}}</td>
+                    <td>
+                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit{{$paciente->id}}">
+                            Editar
+                        </button>
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$paciente->id}}">
+                            Eliminar
+                        </button>
+                    </td>
+                </tr>
+            @endforeach
+        </tbody>
+        </table>
     </div>
-<!-- Modal trigger button -->
-<button
-    type="button"
-    class="btn btn-primary btn-lg"
-    data-bs-toggle="modal"
-    data-bs-target="#evento"
->
-    Launch
-</button>
-
-<!-- Modal Body -->
-<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
-<div
-    class="modal fade"
-    id="evento"
-    tabindex="-1"
-    data-bs-backdrop="static"
-    data-bs-keyboard="false"
-    
-    role="dialog"
-    aria-labelledby="modalTitleId"
-    aria-hidden="true"
->
-    <div
-        class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
-        role="document"
-    >
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="modalTitleId">
-                    EVENTO DEL DIA
-                </h5>
-                <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                ></button>
-            </div>
-            <div class="modal-body">
-
-                <form id="tuFormularioId" action="">
-                    @csrf
-
-                    <div class="mb-3">
-                        <label for="id" class="form-label">ID</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="id"
-                            id="id"
-                            aria-describedby="helpId"
-                            placeholder=""
-                        />
-                        <small id="helpId" class="form-text text-muted">Help text</small>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="" class="form-label">Titulo</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="title"
-                            id="title"
-                            aria-describedby="helpId"
-                            placeholder="Ingrese un titulo al evento"
-                        />
-                        <small id="helpId" class="form-text text-muted">Help text</small>
-                    </div>
-
-
-                    <div class="mb-3">  
-                        <div> 
-                            <label for="disponibilidad_id" class="form-label">Disponibilidad</label>
-                            <select name="disponibilidad_id" id="disponibilidad_id" class="form-control">
-                                <option value="0">Disponible</option>
-                                <option value="1">Ocupado</option>
-                                <option value="2">Feriado</option>
-                                <option value="3">No Laboral</option>
-                            </select>
-                            <small id="helpId" class="form-text text-muted">Tiene que elegir</small>
-                        </div> 
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="start" class="form-label">Start</label>
-                        <input
-                            type="date"
-                            class="form-control"
-                            name="start"
-                            id="start"
-                            aria-describedby="helpId"
-                            placeholder=""
-                        />
-                        <small id="helpId" class="form-text text-muted">Help text</small>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="end" class="form-label">End</label>
-                        <input
-                            type="date"
-                            class="form-control"
-                            name="end"
-                            id="end"
-                            aria-describedby="helpId"
-                            placeholder=""
-                        />
-                        <small id="helpId" class="form-text text-muted">Help text</small>
-                    </div>
-                </form>  
-            </div>
-
-            <div class="modal-footer">
-                <button type="button" class="btn btn-success" id="btnGuardar">GUARDAR</button>
-                <button type="button" class="btn btn-warning" id="btnModificar">MODIFICAR</button>
-                <button type="button" class="btn btn-danger" id="btnEliminar" >ELIMINAR</button>
-                <button
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                >CERRAR</button>
-            </div>
-        </div>
     </div>
-</div>
-
-<!-- Optional: Place to the bottom of scripts -->
-<script>
-    const myModal = new bootstrap.Modal(
-        document.getElementById("modalId"),
-        options,
-    );
-</script>
 
 
-  </body>
+
+</body>
 
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

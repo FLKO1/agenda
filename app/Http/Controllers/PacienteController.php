@@ -6,6 +6,12 @@ use Illuminate\Http\Request;
 
 class PacienteController extends Controller
 {
+
+    public function index(){
+        $pacientes=Paciente::all();
+        return view('paciente.index',compact('pacientes'));
+
+    }
     /*Index me permite ver el formulario */
     public function mostrarFormulario()
     {
@@ -23,7 +29,7 @@ class PacienteController extends Controller
             'prevision' => 'required|in:Fonasa,Isapre,Ninguno',
         ]);
         Paciente::create($request->all()); 
-        return redirect()->with('mensaje', 'Paciente registrado exitosamente.');
+        return redirect('inicio')->with('mensaje', 'Paciente registrado exitosamente.');
     }
 
     public function rutVerificador(){
