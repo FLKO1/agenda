@@ -29,6 +29,8 @@ Auth::routes();
 /*Ingresar datos paciente nuevo*/
 Route::get('/paciente',[PacienteController::class, 'index'])->name('paciente.index');
 Route::get('/registro', [PacienteController::class, 'mostrarFormulario'])->name('paciente.ver');
+Route::get('/paciete/{id}/edit', [PacienteController::class, 'edit'])->name('paciente.edit');
+Route::put('/paciente/{id}', [PacienteController::class, 'update'])-> name('paciente.update');
 Route::post('/registro', [PacienteController::class, 'registrarPaciente'])->name('paciente.registro');
 Route::delete('/paciente/{id}', [PacienteController::class, 'destroy'])->name('paciente.destroy');
 

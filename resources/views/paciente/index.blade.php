@@ -85,9 +85,9 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
                     <td>{{$paciente->correo}}</td>
                     <td>{{$paciente->prevision}}</td>
                     <td>
-                        <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit{{$paciente->id}}">
-                            Editar
-                        </button>
+                        <a href="{{route('paciente.edit', ['id'=> $paciente->id])}}"
+                            class="btn btn-warning">Editar</a></td>
+                    <td>        
                         <form action="{{route('paciente.destroy', ['id'=>$paciente->id])}}" 
                         method="POST"
                         onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta disponibilidad?')">

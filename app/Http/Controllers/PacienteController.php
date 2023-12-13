@@ -53,6 +53,32 @@ class PacienteController extends Controller
         }
     }
 
+    public function edit($id){
+        $paciente = Paciente::findOrFail($id);
+        return view ('paciente.edit', compact('paciente'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'rut'=> 'required',
+            'nombre'=> 'required',
+            'apellido'=> 'required',
+            'correo'=> 'required',
+            'prevision'=> 'required',
+        ]);
+
+        $paciente = Paciente::findOrFail($id);
+        $paciente->update([
+            'rut'=> $request->input('rut'),
+            'nombre'=> $request->input('nombre'),
+            'apellido'=> $request->input('apellido'),
+            'correo'=> $request->input('correo'),
+            'prevision'=> $request->input('prevision'),
+        ]);
+
+        return redirect('paciente.index')->with('success', 'ACTUALIZADO');
+    }
+
     public function destroy($id){
             $paciente = Paciente::findOrFail($id);
             $paciente->delete();
