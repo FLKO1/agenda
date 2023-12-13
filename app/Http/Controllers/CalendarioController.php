@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Calendario;
-
+use App\Models\Disponibilidad;
 use Illuminate\Http\Request;
 
 class CalendarioController extends Controller
@@ -19,25 +19,59 @@ class CalendarioController extends Controller
     }
 
     public function create(){
-        return view ('calendario.create');
+        $disponibilidads =Disponibilidad::all();
+        return view('calendario.create', compact('disponibilidads'));
+
 
     }
 
     public function store(Request $request){
-        request()->validate([
-            'title'=> 'requiered',
-            'disponibilidad_id' => 'required',
-            'star' => 'required',
-            'end' => 'required'
+
+        $calendario=new Calendario([
+            'title' => $request->get('title'),
+            'start' => $request->get('start'),
+            'end' => $request->get('end'),
+            'disponibilidad_id' => $request->get('disponibilidad_id', 1),
         ]);
-        Calendario::create($request->all());
-        return redirect()->route('calendario')->with('success', 'Hora creada!');
+        
+        
+        $calendario->save();
+
+        return redirect('/calendario')->with('success', 'Hora creada!');
+
+    }
+
+    public function edit($id){
+        $calendario = Calendario::findOrFail($id);
+        $disponibilidads = Disponibilidad::all();
+        return view('calendario.edit', compact('calendario', 'disponibilidads'));
+    }
+
+    public function update(Request $request, $id){
+        $request->validate([
+            'title' => 'required',
+            'disponibilidad_id' => 'required',
+            'start' => 'required',
+            'end' => 'required',
+        ]);
+        $calendario = Calendario::findOrFail($id);
+
+        $calendario->update([
+            'title' => $request->input('title'),
+            'disponibilidad_id' => $request->input('disponibilidad_id'),
+            'start' => $request->input('start'),
+            'end' => $request->input('end'),
+        ]);
+      
+
+        return redirect('/calendario')->with('success', 'Evento actualizado correctamente.');
 
     }
 
     public function destroy($id)
     {
-        Calendario::destroy($id);
-        return redirect()->back();
+        $calendario = Calendario::findOrFail($id);
+        $calendario->delete();
+        return redirect('/calendario')->with('succes','CITA ELIMINADA');
     }
 }

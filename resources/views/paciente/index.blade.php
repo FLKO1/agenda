@@ -23,6 +23,33 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('home')}}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('paciente.index') }}">ADMINISTRAR PACIENTES</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('disponibilidad.index') }}">ADMINISTRAR DISPONIBILIDAD</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('especialidad.index')}}">ADMINISTAR ESPECIALIDAD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     
     <div class="row">
         <div class="col-md-2"></div>
@@ -61,9 +88,13 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
                         <button type="button" class="btn btn-success" data-toggle="modal" data-target="#edit{{$paciente->id}}">
                             Editar
                         </button>
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete{{$paciente->id}}">
-                            Eliminar
-                        </button>
+                        <form action="{{route('paciente.destroy', ['id'=>$paciente->id])}}" 
+                        method="POST"
+                        onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta disponibilidad?')">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

@@ -29,19 +29,49 @@
 </head>
 
 <body>
-    <h2>Agenda dias</h2>
-    <div id="calendar"></div>
-    <div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('home')}}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('paciente.index') }}">ADMINISTRAR PACIENTES</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('disponibilidad.index') }}">ADMINISTRAR DISPONIBILIDAD</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('especialidad.index')}}">ADMINISTAR ESPECIALIDAD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="d-grid gap-2 d-md-block col-6 mx-auto">
         <a href="{{route('calendario.create')}}" class="btn btn-primary">CREAR</a>
+
+        <a href="{{route('home')}}" class="btn btn-primary">IR A INICIO</a>
     </div>
+    <br>
     <div class="row justify-content-center align-items-center g-2">
         <div class="table-responsive">
-            <table class="table table-primary">
+            <table class="container">
                 <thead>
                     <tr>
                         <th scope="col">Nombre del Dia</th>
                         <th scope="col">Dia</th>
                         <th scope="col">Hora</th>
+                        <th scope="col">Disponibilidad</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -50,8 +80,20 @@
                     @foreach($calendarios as $calendario)
                     <tr>
                         <td class="fw-bold">{{$calendario->title}}</td>
-                        <td class="fw-bold">{{$calendario->star}}</td>
+                        <td class="fw-bold">{{$calendario->start}}</td>
                         <td class="fw-bold">{{$calendario->end}}</td>
+                        <td class="fw-bold">{{$calendario->disponibilidad->nombre}}</td>
+                        <td><a href="{{route('calendario.edit', ['id' => $calendario->id]) }}" class="btn btn-warning">Editar evento</a></td>
+                            <td>
+                                <form action="{{ route('calendario.destroy', ['id' => $calendario->id]) }}" method="POST" onsubmit="return confirm('¿Estás seguro de que deseas eliminar este evento?')">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Eliminar Evento</button>
+                            </form>
+                        </td>
+                            
+                    </tr>
+                    @endforeach
 
                 </tbody>
             </table>

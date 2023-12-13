@@ -47,15 +47,6 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
                       <a class="nav-link" href="{{route('paciente.regpacantiguo')}}">Paciente Antiguo</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="{{route('disponibilidad.index')}}">DISPONIBILIDAD</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{route('prevision')}}">PREVISION</a>
-              </li>
-                  <li class="nav-item">
-                      <a class="nav-link" href="{{route('especialidad.index')}}">ESPECIALIDAD</a>
-                  </li>
-                  <li class="nav-item">
                       <a class="nav-link" href="{{route('login')}}">Login</a>
                   </li>
               </ul>
@@ -105,19 +96,19 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 <!-- FIN CARRUSEL -->
 
 <!--Imagen para confirmar hora -->
-<div class="container mt-4">
-  <a href="#">
-    <img src="https://www.institutoncologicofalp.cl/wp-content/uploads/2020/12/horas1img.png"
-     alt="Confirmar Hora" class="img-fluid" style="width: 200px; height: 200px;">
-</a>
-<h5>Confirmar Hora</h5>
-</div>
-<div class="container mt-4">
-  <a href="#">
-    <img src="https://png.pngtree.com/element_our/20190531/ourlarge/pngtree-cartoon-office-calendar-image_1297462.jpg"
-     alt="Confirmar Hora" class="img-fluid" style="width: 200px; height: 200px;">
-</a>
-<h5>PEDIR Hora</h5>
+<br>
+<br>
+<br>
+  <div class="text-center">
+  <h5>TOMAR Hora</h5>
+  </div>
+<br>
+<div class="d-flex justify-content-center align-items-center">
+       <a href="#">
+        <img src="https://png.pngtree.com/element_our/20190531/ourlarge/pngtree-cartoon-office-calendar-image_1297462.jpg"
+         alt="Confirmar Hora" class="img-fluid" style="width: 200px; height: 200px;">
+        </a>
+
 </div>
 
 

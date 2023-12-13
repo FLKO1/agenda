@@ -12,12 +12,6 @@ class EspecialidadController extends Controller
         return view ('especialidad.index', compact('especialidades'));
     }
 
-    public function destroy($id)
-    {
-        Especialidad::destroy($id);
-        return redirect()->back();
-    }
-
     public function create(){
         return view('especialidad.create');
     }
@@ -29,5 +23,12 @@ class EspecialidadController extends Controller
         ]);
         Especialidad::create($request->all());
         return redirect()->route('especialidad.index')->with('success', 'Estado nuevo creado');
+    }
+    public function destroy($id)
+    {
+            $especialidad = Especialidad::findOrFail($id);
+            $especialidad->delete();
+            return redirect('especialidad.index')->with('succes','ELIMINADA');
+
     }
 }

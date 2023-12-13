@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('title', 20);
             $table->dateTime("start");
             $table->time("end");
-            $table->unsignedBigInteger('disponibilidad_id');
+            $table->unsignedBigInteger('disponibilidad_id')->default(1);
             $table->foreign('disponibilidad_id')->references('id')->on('disponibilidads');        
             $table->timestamps();
         });

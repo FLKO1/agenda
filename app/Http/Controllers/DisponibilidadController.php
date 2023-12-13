@@ -12,12 +12,6 @@ class DisponibilidadController extends Controller
         return view('disponibilidad.index',compact('disponibilidads'));
     }
 
-    public function destroy($id)
-    {
-        Disponibilidad::destroy($id);
-        return redirect()->back();
-    }
-
     public function create(){
         return view('disponibilidad.create');
     }
@@ -30,5 +24,10 @@ class DisponibilidadController extends Controller
         Disponibilidad::create($request->all());
         return redirect()->route('disponibilidad.index')->with('success', 'Estado nuevo creado');
     }
-
+    public function destroy($id)
+    {
+        $disponibilidad = Disponibilidad::findOrFail($id);
+        $disponibilidad->delete();
+        return redirect('/disponibilidad')->with('succes','ELIMINADA');
+    }
 }

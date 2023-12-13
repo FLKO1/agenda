@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>CREA TUS HORAS</title>
+        <title>EDITA TUS HORAS</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -46,7 +46,8 @@
                 </div>
             </div>
         </nav>
-        <h1>hola mundo!</h1>
+        
+        <h2>EDITAR</h2>
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId">
@@ -55,8 +56,9 @@
             </div>
             <div class="modal-body">
 
-                <form action="{{route('calendario.store')}}" method="POST">
+                <form action="{{ route('calendario.update', ['id' => $calendario->id]) }}" method="POST">                    
                     @csrf
+                    @method("PUT")
                     <div class="mb-3">
                         <label for="" class="form-label">Titulo</label>
                         <input
@@ -66,6 +68,7 @@
                             id="title"
                             aria-describedby="helpId"
                             placeholder="Nombre del dia"
+                            value="{{$calendario->title}}"
                             required
                         />
                         <small id="helpId" class="form-text text-muted">Ejm:Lunes/Martes...</small>
@@ -93,6 +96,7 @@
                             id="start"
                             aria-describedby="helpId"
                             required
+                            value={{$calendario->start}}
                         />
                         <small id="helpId" class="form-text text-muted">Seleccione el dia</small>
                     </div>
@@ -106,11 +110,12 @@
                             id="end"
                             aria-describedby="helpId"
                             required
+                            value="{{$calendario->end}}"
                         />
                         <small id="helpId" class="form-text text-muted">Ingrese la hora</small>
                     </div>
                 
-                        <button type="submit" class="btn btn-success">GUARDAR</button>   
+                        <button type="submit" class="btn btn-success">ACTUALIZAR</button>   
                 </form>  
             </div>
         </div>

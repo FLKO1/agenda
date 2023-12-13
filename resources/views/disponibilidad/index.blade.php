@@ -14,6 +14,33 @@
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">LOGO</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="{{route('home')}}">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{route('paciente.index') }}">ADMINISTRAR PACIENTES</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('disponibilidad.index') }}">ADMINISTRAR DISPONIBILIDAD</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('especialidad.index')}}">ADMINISTAR ESPECIALIDAD</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <h1>ESTE ES TU PANEL PARA DISPONIBILIDAD</h1>
     <div class="row">
         <div class="col-12">
@@ -33,14 +60,15 @@
                 @foreach($disponibilidads as $disponibilida)
                 <tr>
                     <td class="fw-bold">{{$disponibilida->nombre}}</td>
-
+                    </td>
                     <td>
-                       <!-- <form action="" method="post" class="d-inline">
+                        <form action="{{ route('disponibilidad.destroy', ['id' => $disponibilidad->id]) }}" 
+                            method="POST" 
+                            onsubmit="return confirm('¿Estás seguro de que deseas eliminar esta disponibilidad?')">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Eliminar</button>
-
-                        </form> -->
+                        </form>
                     </td>
                 </tr>
                 @endforeach

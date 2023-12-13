@@ -21,25 +21,17 @@ class PacienteController extends Controller
     public function registrarPaciente(Request $request)
     {
 
-        $pacientes= new Paciente();
-        $pacientes->rut =$request->rut;
-        $pacientes->nombre =$request->nombre;
-        $pacientes->apellido =$request->apellido;
-        $pacientes->correo =$request->correo;
-        $pacientes->telefono =$request->telefono;
-        $pacientes->prevision =$request->previson;
-
-        $pacientes->save();
-       /* $request->validate([
-            'rut' => 'required|unique:pacientes,rut|size:12',
-            'nombre' => 'required',
-            'apellido' => 'required',
-            'correo' => 'required|email|unique:pacientes,correo',
-            'telefono' => 'required',
-            'prevision' => 'required|in:Fonasa,Isapre,Ninguno',
+        $pacientes= new Paciente([
+        'rut' => $request->get('rut'),
+        'nombre' => $request->get('nombre'),
+        'apellido' => $request->get('apellido'),
+        'correo' => $request->get('correo'),
+        'telefono' => $request->get('telefono'),
+        'prevision' => $request->get('prevision'),
         ]);
 
-        Paciente::create($request->all()); */
+        $pacientes->save();
+
 
         return redirect('inicio')->with('mensaje', 'Paciente registrado exitosamente.');
     }
@@ -59,5 +51,12 @@ class PacienteController extends Controller
         }else{
             return redirect('paciente.registro')->with('mensaje', 'No se a encontrado ningun paciente con ese rut');
         }
+    }
+
+    public function destroy($id){
+            $paciente = Paciente::findOrFail($id);
+            $paciente->delete();
+            return redirect('inicio')->with('succes','ELIMINADA');
+       
     }
 }

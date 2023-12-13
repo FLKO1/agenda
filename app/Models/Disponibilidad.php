@@ -10,4 +10,8 @@ class Disponibilidad extends Model
     use HasFactory;
     protected $table = 'disponibilidads';
     protected $fillable = ['nombre'];
+
+    public function disponibilidad(){
+        return $this->belongsTo(Disponibilidad::class);
+    }
 }

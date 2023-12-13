@@ -15,8 +15,10 @@ class PrevisionController extends Controller
     
     public function destroy($id)
     {
-        Prevision::destroy($id);
-        return redirect()->back();
+        $prevision = Prevision::findOrFail($id);
+        $prevision->delete();
+        return redirect('prevision.index')->with('succes','ELIMINADA');
+
     }
 
     public function create(){
