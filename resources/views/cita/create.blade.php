@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>CREA TUS HORAS</title>
+        <title>AGENDA TU CITA</title>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta
@@ -46,48 +46,47 @@
                 </div>
             </div>
         </nav>
-
-        <h3>Seleccione el dia que necesita y que especialidad se va a atender</h3>
+        <h3>Seleccione el dia y la especialidad a atender</h3>
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId">
                     EVENTO DEL DIA
                 </h5>
             </div>
-            <div class="form-group">
-                
+            <div class="modal-body">
+
                 <form action="{{route('cita.store')}}" method="POST">
                     @csrf
-                    <div class="mb-3">
-                        <label for="calendario_id" class="form-label">Dias/horas Disponibles</label>
-                        <select name="calendario_id" id="calendario_id" class="form-control" required>
-                            @foreach($calendario as $calendarios)
-                            <option value="{{$calendarios->id}}">{{($calendarios->start)}}</option>                    
-                            @endforeach
-                        </select>
-                        <small id="helpId" class="form-text text-muted">Tiene que seleccionar uno</small>
-                    </div>  
+                    <label for="calendario_id" class="form-label">Dias/horas Disponibles</label>
+                    <select name="calendario_id" id="calendario_id" class="form-control" required>
+                        @foreach($calendario as $calendarios)
+                        <option value="{{$calendarios->id}}">{{($calendarios->start)}}</option>                    
+                        @endforeach
+                    </select>
 
+                    <small id="helpId" class="form-text text-muted">Tiene que seleccionar uno</small>
+                </div> 
 
-
-
-                    <div class="mb-3">  
-                        <div> 
-                            <label for="especialidad" class="form-label">Especialidad</label>
-                            <select name="especialidad" id="especialidad" class="form-control" required>
-                                <option value="LIMPIEZA">Limpieza</option>
-                                <option value="OPERACION">Operacion</option>
-                                <option value="EXTRACCION">EXTRACCION</option>
+                        <div class="form-group">
+                            <label for="especialidad">Seleccionar Especialidad:</label>
+                            <select name="especialidad" class="form-control">
+                                <option value="Limpieza">Limpieza</option>
+                                <option value="Operacion">Operación</option>
+                                <option value="Extraccion">Extracción</option>
                             </select>
-                            <small id="helpId" class="form-text text-muted">Tiene que seleccionar uno</small>
-                        </div> 
-                    </div>
-                        <div class="text-center">
-                        <button type="submit" class=" btn btn-success">Agendar Hora</button>
                         </div>
-                </form>  
+                        <br>
+                        <div class="text-center">
+                            <button type="submit" class=" btn btn-success">Agendar Hora</button>
+                            </div>
+                    </form>  
+                </div>
             </div>
-        </div>
+                        
+
+
+
+        
     
             
         

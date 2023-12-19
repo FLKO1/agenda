@@ -20,21 +20,31 @@ class CitaController extends Controller
     }
 
     public function store(Request $request){
-        $cita= new Cita([
-            'calendario_id' =>$request->get('calendario_id'),
-            'espcialidad'=> $request->get('especialidad'),
-        ]);
 
-        $request->validate([
+        //dump($request->get('calendario_id'));
+        //dump($request->get('especialidad'));
+        
+        $cita = new Cita();
+        $cita->calendario_id = $request->get('calendario_id');
+        $cita->especialidad = $request->get('especialidad');
+        //dd($cita);
+
+        /*$request->validate([
             'calendario_id' => 'required|in:calendarios,id',
             'especialidad' => 'required|in:Limpieza,Operacion,Extraccion',
         ]);
-
+    |   */
 
 
         $cita->save();
-        return redirect('cita.index')->with('success', 'Cita creada exitosamente.');
+        return redirect('cita')->with('success', 'Cita creada exitosamente.');
         
+    }
+
+    public function destroy($id){
+        $cita = Cita::findOrFail($id);
+        $cita->delete();
+        return redirect('cita')->with('succes', 'CITA ELIMINADA');
     }
     
 }

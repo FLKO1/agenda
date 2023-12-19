@@ -14,12 +14,9 @@ return new class extends Migration
         Schema::create('citas', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('calendario_id');
-            $table->unsignedBigInteger('paciente_id');
             $table->enum('especialidad', ['Limpieza', 'Control', 'Extraccion']);
             $table->timestamps();
             $table->foreign('calendario_id')->references('id')->on('calendarios');
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
-        
         });
     }
 

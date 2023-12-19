@@ -11,9 +11,9 @@ class Cita extends Model
 
     protected $fillable = [
         'evento_id',
-        'paciente_id',
         'especialidad',
     ];
+    
 
     public function calendario(){
         return $this->belongsTo(Calendario::class, 'calendario_id');

@@ -56,8 +56,9 @@
             </div>
         </div>
     </nav>
+    <br>
     <div class="d-grid gap-2 d-md-block col-6 mx-auto">
-        <a href="{{route('cita.create')}}" class="btn btn-primary">CREAR</a>
+        <a href="{{route('cita.create')}}" class="btn btn-primary btn-lg">CREAR</a>
     </div>
     <br>
     <div class="row justify-content-center align-items-center g-2">
@@ -81,7 +82,6 @@
                         <td class="fw-bold">{{$cita->calendario->start}}</td>
                         <td class="fw-bold">{{$cita->calendario->end}}</td>-
                         <td class="fw-bold">{{$cita->especialidad}}</td>
-                        <td><a href="{{route('cita.edit', ['id' => $cita->id]) }}" class="btn btn-warning">Editar cita</a></td>
                             <td>
                                 <form action="{{ route('cita.destroy', ['id' => $cita->id]) }}" method="POST" 
                                 onsubmit="return confirm('¿Estás seguro de que deseas eliminar este evento?')">

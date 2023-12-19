@@ -38,6 +38,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>
                     </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="{{route('cita.index')}}">ADMINISTRA CITA</a>
+                  </li>
                 </ul>
             </div>
         </div>
