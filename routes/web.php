@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\CalendarioController;
+use App\Http\Controllers\CitaController;
 use App\Http\Controllers\DisponibilidadController;
 use App\Http\Controllers\PrevisionController;
 use App\Http\Controllers\EspecialidadController;
@@ -63,5 +64,13 @@ Route::get('/especialidad',[EspecialidadController::class,'index'])->name('espec
 Route::get('/especialidad/create',[EspecialidadController::class,'create'])->name('especialidad.create');
 Route::post('/especialidad/store',[EspecialidadController::class,'store'])->name('especialidad.store');
 Route::delete('/especialidad/{id}',[EspecialidadController::class,'destroy'])->name('especialidad.destroy');
+
+/*CITA*/
+Route::get('/cita', [CitaController::class, 'index'])->name('cita.index');
+Route::get('/cita/create',[CitaController::class, 'create'])->name('cita.create');
+Route::post('/cita/store', [CitaController::class, 'store'])->name('cita.store');
+Route::get('/cita/{id}/edit',[CitaController::class, 'edit'])->name('cita.edit');
+Route::put('/cita/{id}', [CitaController::class, 'update'])->name('cita.update');
+Route::delete('/cita/{id}',[CitaController::class, 'destroy' ])->name('cita.destroy');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

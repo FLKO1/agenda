@@ -47,6 +47,9 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
                       <a class="nav-link" href="{{route('paciente.regpacantiguo')}}">Paciente Antiguo</a>
                   </li>
                   <li class="nav-item">
+                    <a class="nav-link" href="{{route('cita.index')}}">Agendar Hora</a>
+                </li>
+                  <li class="nav-item">
                       <a class="nav-link" href="{{route('login')}}">Login</a>
                   </li>
               </ul>
@@ -104,7 +107,7 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   </div>
 <br>
 <div class="d-flex justify-content-center align-items-center">
-       <a href="#">
+       <a href="{{route('cita.index')}}">
         <img src="https://png.pngtree.com/element_our/20190531/ourlarge/pngtree-cartoon-office-calendar-image_1297462.jpg"
          alt="Confirmar Hora" class="img-fluid" style="width: 200px; height: 200px;">
         </a>

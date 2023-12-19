@@ -12,6 +12,10 @@ class Calendario extends Model
     
         return $this->belongsTo(Disponibilidad::class);
     }
+    public function calendario()
+    {
+        return $this->hasMany(Calendario::class);
+    }
 
     static $rules=[
         'title'=> 'required',

@@ -14,4 +14,9 @@ class Disponibilidad extends Model
     public function disponibilidad(){
         return $this->belongsTo(Disponibilidad::class);
     }
+
+    public function calendarios()
+    {
+        return $this->hasMany(Calendario::class, 'disponibilidad_id');
+    }
 }

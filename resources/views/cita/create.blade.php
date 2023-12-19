@@ -46,71 +46,45 @@
                 </div>
             </div>
         </nav>
-        <h1>hola mundo!</h1>
+
+        <h3>Seleccione el dia que necesita y que especialidad se va a atender</h3>
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modalTitleId">
                     EVENTO DEL DIA
                 </h5>
             </div>
-            <div class="modal-body">
-
-                <form action="{{route('calendario.store')}}" method="POST">
+            <div class="form-group">
+                
+                <form action="{{route('cita.store')}}" method="POST">
                     @csrf
                     <div class="mb-3">
-                        <label for="" class="form-label">Titulo</label>
-                        <input
-                            type="text"
-                            class="form-control"
-                            name="title"
-                            id="title"
-                            aria-describedby="helpId"
-                            placeholder="Nombre del dia"
-                            required
-                        />
-                        <small id="helpId" class="form-text text-muted">Ejm:Lunes/Martes...</small>
-                    </div>
+                        <label for="calendario_id" class="form-label">Dias/horas Disponibles</label>
+                        <select name="calendario_id" id="calendario_id" class="form-control" required>
+                            @foreach($calendario as $calendarios)
+                            <option value="{{$calendarios->id}}">{{($calendarios->start)}}</option>                    
+                            @endforeach
+                        </select>
+                        <small id="helpId" class="form-text text-muted">Tiene que seleccionar uno</small>
+                    </div>  
+
+
 
 
                     <div class="mb-3">  
                         <div> 
-                            <label for="disponibilidad_id" class="form-label">Disponibilidad</label>
-                            <select name="disponibilidad_id" id="disponibilidad_id" class="form-control" required>
-                                @foreach($disponibilidads as $disponibilidad)
-                                <option value="{{$disponibilidad->id}}">{{$disponibilidad->nombre}}</option>
-                                @endforeach
+                            <label for="especialidad" class="form-label">Especialidad</label>
+                            <select name="especialidad" id="especialidad" class="form-control" required>
+                                <option value="LIMPIEZA">Limpieza</option>
+                                <option value="OPERACION">Operacion</option>
+                                <option value="EXTRACCION">EXTRACCION</option>
                             </select>
                             <small id="helpId" class="form-text text-muted">Tiene que seleccionar uno</small>
                         </div> 
                     </div>
-
-                    <div class="mb-3 ">
-                        <label for="start" class="form-label">Start</label>
-                        <input
-                            type="date"
-                            class="col-xs-2"
-                            name="start"
-                            id="start"
-                            aria-describedby="helpId"
-                            required
-                        />
-                        <small id="helpId" class="form-text text-muted">Seleccione el dia</small>
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="end" class="form-label">End</label>
-                        <input
-                            type="time"
-                            class="col-xs-2"
-                            name="end"
-                            id="end"
-                            aria-describedby="helpId"
-                            required
-                        />
-                        <small id="helpId" class="form-text text-muted">Ingrese la hora</small>
-                    </div>
-                
-                        <button type="submit" class="btn btn-success">GUARDAR</button>   
+                        <div class="text-center">
+                        <button type="submit" class=" btn btn-success">Agendar Hora</button>
+                        </div>
                 </form>  
             </div>
         </div>

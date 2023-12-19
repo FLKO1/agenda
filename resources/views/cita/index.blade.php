@@ -38,19 +38,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{route('home')}}">Inicio</a>
+                        <a class="nav-link active" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('paciente.index') }}">ADMINISTRAR PACIENTES</a>
+                        <a class="nav-link" href="{{route('paciente.registro') }}">Paciente nuevo</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{route('disponibilidad.index') }}">ADMINISTRAR DISPONIBILIDAD</a>
+                        <a class="nav-link" href="{{route('paciente.regpacantiguo')}}">Paciente Antiguo</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{route('especialidad.index')}}">ADMINISTAR ESPECIALIDAD</a>
-                    </li>
+                      <a class="nav-link" href="{{route('cita.index')}}">Agendar Hora</a>
+                  </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>
+                        <a class="nav-link" href="{{route('login')}}">Login</a>
                     </li>
                 </ul>
             </div>
@@ -58,8 +58,6 @@
     </nav>
     <div class="d-grid gap-2 d-md-block col-6 mx-auto">
         <a href="{{route('cita.create')}}" class="btn btn-primary">CREAR</a>
-
-        <a href="{{route('inicio')}}" class="btn btn-primary">IR A INICIO</a>
     </div>
     <br>
     <div class="row justify-content-center align-items-center g-2">
@@ -70,8 +68,6 @@
                         <th scope="col">Nombre del Dia</th>
                         <th scope="col">Dia</th>
                         <th scope="col">Hora</th>
-                        <th scope="col">Paciente</th>
-                        <th scope="col">Rut</th>
                         <th scope="col">Especialidad</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -81,11 +77,9 @@
                     </tr>
                     @foreach($citas as $cita)
                     <tr>
-                        <td class="fw-bold">{{$cita->calendario->nombre}}</td>
+                        <td class="fw-bold">{{$cita->calendario->title}}</td>
                         <td class="fw-bold">{{$cita->calendario->start}}</td>
-                        <td class="fw-bold">{{$cita->calendario->end}}</td>
-                        <td class="fw-bold">{{$cita->paciente->nombre}}</td>
-                        <td class="fw-bold">{{$cita->paciente->rut}}</td>
+                        <td class="fw-bold">{{$cita->calendario->end}}</td>-
                         <td class="fw-bold">{{$cita->especialidad}}</td>
                         <td><a href="{{route('cita.edit', ['id' => $cita->id]) }}" class="btn btn-warning">Editar cita</a></td>
                             <td>
@@ -95,8 +89,7 @@
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Eliminar Evento</button>
                             </form>
-                        </td>
-                            
+                        </td>             
                     </tr>
                     @endforeach
 

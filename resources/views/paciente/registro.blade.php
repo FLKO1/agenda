@@ -16,19 +16,19 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link active" href="{{route('home')}}">Inicio</a>
+                        <a class="nav-link active" href="#">Inicio</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{route('paciente.index') }}">ADMINISTRAR PACIENTES</a>
+                        <a class="nav-link" href="{{route('paciente.registro') }}">Paciente nuevo</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{route('disponibilidad.index') }}">ADMINISTRAR DISPONIBILIDAD</a>
+                        <a class="nav-link" href="{{route('paciente.regpacantiguo')}}">Paciente Antiguo</a>
                     </li>
                     <li class="nav-item">
-                      <a class="nav-link" href="{{route('especialidad.index')}}">ADMINISTAR ESPECIALIDAD</a>
-                    </li>
+                      <a class="nav-link" href="{{route('cita.index')}}">Agendar Hora</a>
+                  </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/calendario')}}">CALENDARIO</a>
+                        <a class="nav-link" href="{{route('login')}}">Login</a>
                     </li>
                 </ul>
             </div>
